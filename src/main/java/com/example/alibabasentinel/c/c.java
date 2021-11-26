@@ -41,8 +41,8 @@ public class c {
     }
     @Resource
     private feign feign;
-    @RequestMapping(value = "/e/{string}")
-    public String e(@PathVariable String string) {
+    @RequestMapping(value = "/f/{string}")
+    public String f(@PathVariable String string) {
         return feign.echo(string);
     }
 
