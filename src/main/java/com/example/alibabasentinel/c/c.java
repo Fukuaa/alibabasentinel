@@ -3,9 +3,13 @@ package com.example.alibabasentinel.c;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.example.alibabasentinel.myhanler.myhander;
+import com.example.alibabasentinel.services.feign;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 @RestController
 public class c {
@@ -35,6 +39,13 @@ public class c {
     public String d(){
         return "*********d😘😘😘";
     }
+    @Resource
+    private feign feign;
+    @RequestMapping(value = "/e/{string}")
+    public String e(@PathVariable String string) {
+        return feign.echo(string);
+    }
+
     public String c2 (String p1, String p2, BlockException exception){
         return "*********c😭😭😭";
     }
